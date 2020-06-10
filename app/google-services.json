@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "305384866150",
+    "firebase_url": "https://plantmonitor-723b4.firebaseio.com",
+    "project_id": "plantmonitor-723b4",
+    "storage_bucket": "plantmonitor-723b4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:305384866150:android:3945af27fdfb0dca94c8a7",
+        "android_client_info": {
+          "package_name": "com.example.plantmonitor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "305384866150-i8plf0av29dmn3jst71cjfriiqsq0bn4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHq-PyJOUUxMGT6vnjGg-sb0-40VwLb78"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "305384866150-i8plf0av29dmn3jst71cjfriiqsq0bn4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
