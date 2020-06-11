@@ -11,13 +11,23 @@
         tools:context=".screens.dashboard" >
 
         <TextView
-            android:id="@+id/water_label"
+            android:id="@+id/humidity_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Soil Wetness"
+            android:text="Soil Humidity"
             app:layout_constraintBottom_toBottomOf="@+id/water_icon"
             app:layout_constraintStart_toEndOf="@+id/water_icon"
             app:layout_constraintTop_toTopOf="@+id/water_icon" />
+
+        <TextView
+            android:id="@+id/humidity_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            app:layout_constraintBottom_toBottomOf="@+id/water_icon"
+            app:layout_constraintStart_toEndOf="@+id/humidity_label"
+            app:layout_constraintTop_toTopOf="@+id/water_icon"
+            app:layout_constraintVertical_bias="0.4" />
 
         <ImageView
             android:id="@+id/water_icon"
