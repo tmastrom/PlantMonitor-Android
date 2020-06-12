@@ -5,7 +5,6 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.plantmonitor.database.PlantItem
-import com.example.plantmonitor.screens.dashboard.DashboardFragment
 import com.google.firebase.firestore.FirebaseFirestore
 
 class DashboardViewModel : ViewModel() {
@@ -17,7 +16,6 @@ class DashboardViewModel : ViewModel() {
     init {
         Log.i("ViewModel", "ViewModel created")
         firestore = FirebaseFirestore.getInstance()
-        //firestore.firestoreSettings = FirebaseFirestore.Builder().build()
         listenToPlants()
     }
 
@@ -44,20 +42,6 @@ class DashboardViewModel : ViewModel() {
         }
     }
 
-    fun save(plantItem : PlantItem) {
-        firestore.collection("plant_data")
-            .document("plant0")
-            .set(plantItem)
-            .addOnSuccessListener {
-                Log.d("Firebase", "Document Saved")
-                // TODO Notify User
-            }
-            .addOnFailureListener {
-                Log.e("Firebase", "Document Not Saved")
-                // TODO Notify User
-            }
-    }
-
     override fun onCleared() {
         super.onCleared()
         Log.i("ViewModel", "ViewModel destroyed")
@@ -66,11 +50,5 @@ class DashboardViewModel : ViewModel() {
     internal var plant : MutableLiveData<PlantItem>
         get() { return _plant}
         set(value) {_plant = value}
-
-
-
-/*    internal var plants : MutableLiveData<ArrayList<PlantItem>>
-        get() {return _plants}
-        set(value) {_plants = value}*/
 
 }

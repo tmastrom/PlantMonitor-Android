@@ -25,10 +25,8 @@ class DashboardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         binding = DataBindingUtil.inflate(
             inflater, R.layout.dashboard_fragment, container, false)
-        //val viewModelFactory =
         viewModel = ViewModelProvider(this).get(DashboardViewModel::class.java)
 
         viewModel.plant.observe(viewLifecycleOwner, Observer {
