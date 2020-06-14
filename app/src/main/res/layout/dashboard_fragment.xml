@@ -4,38 +4,175 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/dashboard_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/dashboard_layout"
         android:layout_marginStart="24dp"
-        tools:context=".screens.dashboard" >
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        tools:context=".screens.dashboard">
+
 
         <TextView
-            android:id="@+id/humidity_label"
+            android:id="@+id/timestamp_light"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Soil Humidity"
-            app:layout_constraintBottom_toBottomOf="@+id/water_icon"
-            app:layout_constraintStart_toEndOf="@+id/water_icon"
-            app:layout_constraintTop_toTopOf="@+id/water_icon" />
+            android:text="2020-06-11 09:24"
+            app:layout_constraintEnd_toEndOf="@+id/sunlight_value"
+            app:layout_constraintStart_toStartOf="@+id/sunlight_value"
+            app:layout_constraintTop_toBottomOf="@+id/sunlight_value" />
 
         <TextView
-            android:id="@+id/humidity_value"
+            android:id="@+id/timestamp_temperature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
-            app:layout_constraintBottom_toBottomOf="@+id/water_icon"
-            app:layout_constraintStart_toEndOf="@+id/humidity_label"
-            app:layout_constraintTop_toTopOf="@+id/water_icon"
-            app:layout_constraintVertical_bias="0.4" />
+            android:text="2020-06-11 09:24"
+            app:layout_constraintEnd_toEndOf="@+id/temperature_value"
+            app:layout_constraintStart_toStartOf="@+id/temperature_value"
+            app:layout_constraintTop_toBottomOf="@+id/temperature_value" />
+
+        <TextView
+            android:id="@+id/timestamp_ph"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2020-06-11 09:24"
+            app:layout_constraintEnd_toEndOf="@+id/ph_value"
+            app:layout_constraintStart_toStartOf="@+id/ph_value"
+            app:layout_constraintTop_toBottomOf="@+id/ph_value" />
+
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="140dp"
+            android:text="Plant Monitor"
+            style="@style/data_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/water_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="100dp"
             android:src="@drawable/ic_water_black_24dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/title_text" />
+
+        <ImageView
+            android:id="@+id/temperature_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="52dp"
+            android:src="@drawable/ic_thermometer_black_24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/temperature_title_text"
+            app:layout_constraintStart_toEndOf="@+id/humidity_label" />
+
+        <ImageView
+            android:id="@+id/light_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="120dp"
+            android:tint="@android:color/black"
+            android:src="@drawable/ic_baseline_wb_sunny_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/water_icon" />
+
+        <TextView
+            android:id="@+id/humidity_label"
+            style="@style/data_title"
+            android:text="Soil humidity"
+            app:layout_constraintBottom_toBottomOf="@+id/water_icon"
+            app:layout_constraintStart_toEndOf="@+id/water_icon"
+            app:layout_constraintTop_toTopOf="@+id/water_icon" />
+
+
+        <TextView
+            android:id="@+id/temperature_title_text"
+            style="@style/data_title"
+            android:text="Temperature"
+            app:layout_constraintStart_toEndOf="@+id/temperature_icon"
+            app:layout_constraintTop_toTopOf="@+id/humidity_label" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:progress="50"
+            app:layout_constraintEnd_toEndOf="@+id/humidity_label"
+            app:layout_constraintHorizontal_bias="0.488"
+            app:layout_constraintStart_toEndOf="@+id/water_icon"
+            app:layout_constraintTop_toBottomOf="@+id/humidity_value" />
+
+        <TextView
+            android:id="@+id/humidity_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="50%"
+            app:layout_constraintEnd_toEndOf="@+id/humidity_label"
+            app:layout_constraintStart_toStartOf="@+id/humidity_label"
+            app:layout_constraintTop_toBottomOf="@+id/humidity_label"
+            style="@style/value_text" />
+
+        <TextView
+            android:id="@+id/ph_title_text"
+            style="@style/data_title"
+            android:layout_marginStart="168dp"
+            android:text="pH"
+            app:layout_constraintStart_toEndOf="@+id/light_title_text"
+            app:layout_constraintTop_toTopOf="@+id/light_title_text" />
+
+        <TextView
+            android:id="@+id/ph_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="7"
+            style="@style/value_text"
+            app:layout_constraintEnd_toEndOf="@+id/ph_title_text"
+            app:layout_constraintStart_toStartOf="@+id/ph_title_text"
+            app:layout_constraintTop_toBottomOf="@+id/ph_title_text" />
+
+        <TextView
+            android:id="@+id/light_title_text"
+            style="@style/data_title"
+            android:text="Light"
+            app:layout_constraintBottom_toBottomOf="@+id/light_icon"
+            app:layout_constraintStart_toEndOf="@+id/light_icon"
+            app:layout_constraintTop_toTopOf="@+id/light_icon" />
+
+        <TextView
+            android:id="@+id/sunlight_value"
+            style="@style/value_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2h 15m"
+            app:layout_constraintEnd_toEndOf="@+id/light_title_text"
+            app:layout_constraintStart_toEndOf="@+id/light_icon"
+            app:layout_constraintTop_toBottomOf="@+id/light_title_text" />
+
+        <TextView
+            android:id="@+id/temperature_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="30°C"
+            style="@style/value_text"
+            app:layout_constraintEnd_toEndOf="@+id/temperature_title_text"
+            app:layout_constraintStart_toStartOf="@+id/temperature_title_text"
+            app:layout_constraintTop_toBottomOf="@+id/temperature_title_text" />
+
+        <TextView
+            android:id="@+id/timestamp_humidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2020-06-11 09:24"
+            app:layout_constraintEnd_toEndOf="@+id/humidity_label"
+            app:layout_constraintStart_toEndOf="@+id/water_icon"
+            app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
