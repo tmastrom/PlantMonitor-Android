@@ -2,6 +2,7 @@ package com.example.plantmonitor.ui.dashboard
 
 import android.content.ContentValues.TAG
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.plantmonitor.data.models.PlantItem
@@ -14,7 +15,7 @@ class DashboardViewModel (
 ) : ViewModel() {
 
     private var firestore : FirebaseFirestore
-    var humidity: String? = null
+    var humidity: MutableLiveData<String> = MutableLiveData<String>()
 
     private var _plant: MutableLiveData<PlantItem> = MutableLiveData<PlantItem>()
 
@@ -53,6 +54,10 @@ class DashboardViewModel (
                 // we have a snapshot
                 val plant = snapshot.toObject(PlantItem::class.java)
                 _plant.value = plant
+                Log.i(TAG, "listenToPlants: observe change")
+                humidity.value = _plant.value!!.humidity.toString()
+
+
 
             }
         }

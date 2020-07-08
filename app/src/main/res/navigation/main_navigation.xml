@@ -8,5 +8,5 @@
         android:id="@+id/dashboardFragment"
         android:name="com.example.plantmonitor.ui.dashboard.DashboardActivity"
         android:label="DashboardFragment"
-        tools:layout="@layout/dashboard_activity"/>
+        tools:layout="@layout/activity_dashboard"/>
 </navigation>
