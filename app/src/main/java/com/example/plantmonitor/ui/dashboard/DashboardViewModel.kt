@@ -2,13 +2,14 @@ package com.example.plantmonitor.ui.dashboard
 
 import android.content.ContentValues.TAG
 import android.util.Log
-import androidx.lifecycle.LiveData
+import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.plantmonitor.data.models.PlantItem
 import com.example.plantmonitor.data.repositories.UserRepository
+import com.example.plantmonitor.utils.startLoginActivity
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.core.View
+
 
 class DashboardViewModel (
     private val repository: UserRepository
@@ -29,11 +30,9 @@ class DashboardViewModel (
         repository.currentUser()
     }
 
-    //Todo: What is going on here?
-    fun logout(view: View) {
+    fun logout(view: View){
         repository.logout()
-        //view.context.startLoginActivity()
-
+        view.context.startLoginActivity()
     }
 
     /**
@@ -56,9 +55,6 @@ class DashboardViewModel (
                 _plant.value = plant
                 Log.i(TAG, "listenToPlants: observe change")
                 humidity.value = _plant.value!!.humidity.toString()
-
-
-
             }
         }
     }

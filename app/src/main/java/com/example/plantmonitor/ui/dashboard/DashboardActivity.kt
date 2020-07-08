@@ -19,8 +19,6 @@ class DashboardActivity : AppCompatActivity(), KodeinAware {
     private val factory : DashboardViewModelFactory by instance<DashboardViewModelFactory>()
 
     private lateinit var viewModel: DashboardViewModel
-    //private lateinit var plantData: PlantItem
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,15 +27,8 @@ class DashboardActivity : AppCompatActivity(), KodeinAware {
         val binding: ActivityDashboardBinding = DataBindingUtil.setContentView(this, R.layout.activity_dashboard)
         viewModel = ViewModelProvider(this, factory).get(DashboardViewModel::class.java)
         binding.vm = viewModel
-        binding.lifecycleOwner = this
+        //binding.lifecycleOwner = this
 
     }
-
-    /** Methods for updating the UI **/
-/*    private fun updateHumidityValue() {
-        Toast.makeText(this, "update value: " + plantData.humidity.toString() , Toast.LENGTH_SHORT).show()
-        viewModel.humidity = plantData.humidity.toString()
-
-    }*/
 
 }
