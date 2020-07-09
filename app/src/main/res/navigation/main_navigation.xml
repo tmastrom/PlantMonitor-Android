@@ -6,7 +6,7 @@
     app:startDestination="@id/dashboardFragment">
     <fragment
         android:id="@+id/dashboardFragment"
-        android:name="com.example.plantmonitor.screens.dashboard.DashboardFragment"
+        android:name="com.example.plantmonitor.ui.dashboard.DashboardActivity"
         android:label="DashboardFragment"
-        tools:layout="@layout/dashboard_fragment"/>
+        tools:layout="@layout/activity_dashboard"/>
 </navigation>
