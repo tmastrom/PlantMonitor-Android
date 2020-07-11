@@ -16,6 +16,7 @@ class AuthViewModel(
     var email: String? = null
     var password: String? = null
 
+
     //auth listener
     var authListener: AuthListener? = null
 
@@ -31,8 +32,8 @@ class AuthViewModel(
 
         //validate email and password
         // Todo: Use a validator class for testing
-        if (email.isNullOrEmpty() || password.isNullOrEmpty()) {
-            authListener?.onFailure("Invalid email or password")
+        if (!SignInValidator.isValidEmail(email) && !SignInValidator.isValidPassword(password)) {
+            authListener?.onFailure("Invalid email or password\n email: "+ email + "\npassword: "+ password)
             return
         }
 
@@ -53,7 +54,7 @@ class AuthViewModel(
 
     //perform the signup
     fun signup() {
-        if (email.isNullOrEmpty() || password.isNullOrEmpty()) {
+        if (SignInValidator.isValidEmail(email) || SignInValidator.isValidPassword(password)) {
             authListener?.onFailure("Please input all values")
             return
         }
