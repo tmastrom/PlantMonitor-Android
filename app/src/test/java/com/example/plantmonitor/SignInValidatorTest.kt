@@ -41,4 +41,24 @@ class SignInValidatorTest {
     fun emailValidator_NullEmail_ReturnsFalse() {
         assertFalse(SignInValidator.isValidEmail(null))
     }
+
+    @Test
+    fun passwordValidator_Length6_ReturnsTrue() {
+        assertTrue(SignInValidator.isValidPassword("123456"))
+    }
+
+    @Test
+    fun passwordValidator_Length32_ReturnsTrue() {
+        assertTrue(SignInValidator.isValidPassword("123456abcdefghijklmnopqrstuvwxyz"))
+    }
+
+    @Test
+    fun passwordValidator_Length33_ReturnsFalse() {
+        assertFalse(SignInValidator.isValidPassword("1234567abcdefghijklmnopqrstuvwxyz"))
+    }
+
+    @Test
+    fun passwordValidator_Length5_ReturnsFalse() {
+        assertFalse(SignInValidator.isValidPassword("12345"))
+    }
 }

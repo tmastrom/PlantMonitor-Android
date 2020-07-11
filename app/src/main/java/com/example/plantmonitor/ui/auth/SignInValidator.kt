@@ -1,9 +1,6 @@
 package com.example.plantmonitor.ui.auth
 
-import android.text.Editable
-import android.text.TextWatcher
 import java.util.regex.Pattern
-
 
 /**
  * An Email format validator for [android.widget.EditText].
@@ -25,6 +22,13 @@ class SignInValidator {
         )
 
         /**
+         * Password Validation Pattern
+         */
+        val PASSWORD_PATTERN = Pattern.compile(
+            "[a-zA-Z0-9*!@\$%^&(){}\\[\\]:;<>,.?/~_+\\-=|]"
+        )
+
+        /**
          * Validates if the given input is a valid email address.
          *
          * @param email        The email to validate.
@@ -35,7 +39,30 @@ class SignInValidator {
         }
 
         fun isValidPassword(password: CharSequence?): Boolean {
-            return password != null && password.length > 5
+            
+/*            var count : Int = 0;
+            
+            if ( password == null) {
+                return false
+            }
+            else if(password.length in 8..32)
+            {
+                if( password.matches(".*\\d.*") )
+                    count ++;
+                if( password.matches(".*[a-z].*") )
+                    count ++;
+                if( password.matches(".*[A-Z].*") )
+                    count ++;
+                if( password.matches(".*[*.!@#$%^&(){}[]:;'<>,.?/~`_+-=|\\]\".*") )
+                count ++;
+
+
+            }
+            if (count > 1) return true
+            return false*/
+            return password != null && password.length >= 6 && password.length <= 32
         }
     }
 }
+
+
