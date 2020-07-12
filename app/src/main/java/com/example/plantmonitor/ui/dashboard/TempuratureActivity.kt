@@ -13,7 +13,7 @@ import org.kodein.di.KodeinAware
 import org.kodein.di.android.kodein
 import org.kodein.di.generic.instance
 
-class DashboardActivity : AppCompatActivity(), KodeinAware {
+class TempuratureActivity : AppCompatActivity(), KodeinAware {
 
     override val kodein by kodein()
     private val factory : DashboardViewModelFactory by instance<DashboardViewModelFactory>()
@@ -24,9 +24,9 @@ class DashboardActivity : AppCompatActivity(), KodeinAware {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.homepage)
+        setContentView(R.layout.Temperature)
 
-        val binding: ActivityDashboardBinding = DataBindingUtil.setContentView(this, R.layout.homepage)
+        val binding: ActivityDashboardBinding = DataBindingUtil.setContentView(this, R.layout.Temperature)
         viewModel = ViewModelProvider(this, factory).get(DashboardViewModel::class.java)
         binding.vm = viewModel
         binding.lifecycleOwner = this

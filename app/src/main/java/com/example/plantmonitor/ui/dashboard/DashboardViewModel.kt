@@ -1,12 +1,14 @@
 package com.example.plantmonitor.ui.dashboard
 
 import android.content.ContentValues.TAG
+import android.content.Intent
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.plantmonitor.data.models.PlantItem
 import com.example.plantmonitor.data.repositories.UserRepository
+import com.example.plantmonitor.ui.auth.LoginActivity
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.core.View
 
@@ -66,6 +68,27 @@ class DashboardViewModel (
     override fun onCleared() {
         super.onCleared()
         Log.i("ViewModel", "ViewModel destroyed")
+    }
+
+    fun gototemp(view: android.view.View) {
+        Intent(view.context, TempuratureActivity::class.java).also {
+            view.context.startActivity(it)
+        }
+    }
+    fun gotomos(view: android.view.View) {
+        Intent(view.context, MostureActivity::class.java).also {
+            view.context.startActivity(it)
+        }
+    }
+    fun gotoLight(view: android.view.View) {
+        Intent(view.context, LightActivity::class.java).also {
+            view.context.startActivity(it)
+        }
+    }
+    fun gohome(view: android.view.View) {
+        Intent(view.context, DashboardActivity::class.java).also {
+            view.context.startActivity(it)
+        }
     }
 
     internal var plant : MutableLiveData<PlantItem>
