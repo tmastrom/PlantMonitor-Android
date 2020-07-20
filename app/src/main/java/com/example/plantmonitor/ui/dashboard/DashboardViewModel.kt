@@ -1,6 +1,7 @@
 package com.example.plantmonitor.ui.dashboard
 
 import android.content.ContentValues.TAG
+import android.content.Intent
 import android.util.Log
 import android.view.View
 import androidx.lifecycle.MutableLiveData
@@ -66,6 +67,28 @@ class DashboardViewModel (
         Log.i("ViewModel", "ViewModel destroyed")
     }
 
+    fun gototemp(view: android.view.View) {
+        Intent(view.context, TempuratureActivity::class.java).also {
+            view.context.startActivity(it)
+        }
+    }
+    fun gotomos(view: android.view.View) {
+        Intent(view.context, MostureActivity::class.java).also {
+            view.context.startActivity(it)
+        }
+    }
+    fun gotoLight(view: android.view.View) {
+        Intent(view.context, LightActivity::class.java).also {
+            view.context.startActivity(it)
+        }
+    }
+    fun gohome(view: android.view.View) {
+        Intent(view.context, DashboardActivity::class.java).also {
+            view.context.startActivity(it)
+        }
+    }
+
+    //Todo: remove unused variable
     internal var plant : MutableLiveData<PlantItem>
         get() { return _plant}
         set(value) {_plant = value}

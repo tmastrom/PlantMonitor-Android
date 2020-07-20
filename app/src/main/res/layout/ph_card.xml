@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/ph_title_text"
+        style="@style/data_title"
+        android:text="pH"
+        app:layout_constraintEnd_toEndOf="@+id/ph_value"
+        app:layout_constraintStart_toStartOf="@+id/ph_value"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/ph_value"
+        style="@style/value_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="7"
+        app:layout_constraintEnd_toEndOf="@+id/timestamp_ph"
+        app:layout_constraintStart_toStartOf="@+id/timestamp_ph"
+        app:layout_constraintTop_toBottomOf="@+id/ph_title_text" />
+
+    <TextView
+        android:id="@+id/timestamp_ph"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2020-06-11 09:24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ph_value" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
