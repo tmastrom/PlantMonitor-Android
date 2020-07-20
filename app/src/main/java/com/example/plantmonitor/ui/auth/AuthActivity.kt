@@ -1,18 +1,18 @@
 package com.example.plantmonitor.ui.auth
 
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.example.plantmonitor.R
-import com.example.plantmonitor.databinding.ActivityLoginBinding
+import com.example.plantmonitor.databinding.ActivityAuthBinding
 import com.example.plantmonitor.utils.startDashboardActivity
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.kodein
 import org.kodein.di.generic.instance
 
-class LoginActivity : AppCompatActivity(), AuthListener, KodeinAware {
+class AuthActivity : AppCompatActivity(), AuthListener, KodeinAware {
 
     override val kodein by kodein()
     private val factory : AuthViewModelFactory by instance<AuthViewModelFactory>()
@@ -22,7 +22,7 @@ class LoginActivity : AppCompatActivity(), AuthListener, KodeinAware {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val binding: ActivityLoginBinding = DataBindingUtil.setContentView(this, R.layout.activity_login)
+        val binding = DataBindingUtil.setContentView<ActivityAuthBinding>(this, R.layout.activity_auth)
         viewModel = ViewModelProvider(this, factory).get(AuthViewModel::class.java)
         binding.vm = viewModel
 
@@ -30,25 +30,14 @@ class LoginActivity : AppCompatActivity(), AuthListener, KodeinAware {
     }
 
     override fun onStarted() {
-        //progressbar.visibility = View.VISIBLE
-        //Toast.makeText(this, "started", Toast.LENGTH_SHORT).show()
+        TODO("Not yet implemented")
     }
 
     override fun onSuccess() {
-        //progressbar.visibility = View.GONE
-        //Toast.makeText(this, "success", Toast.LENGTH_SHORT).show()
-        startDashboardActivity()
+        TODO("Not yet implemented")
     }
 
     override fun onFailure(message: String) {
-        //progressbar.visibility = View.GONE
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-    }
-
-    override fun onStart() {
-        super.onStart()
-        viewModel.user?.let {
-            startDashboardActivity()
-        }
+        TODO("Not yet implemented")
     }
 }

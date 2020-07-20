@@ -70,18 +70,6 @@ class AuthViewModel(
         disposables.add(disposable)
     }
 
-    // Todo: Change to navigation paths
-    fun goToSignup(view: View) {
-        Intent(view.context, SignupActivity::class.java).also {
-            view.context.startActivity(it)
-        }
-    }
-
-    fun goToLogin(view: View) {
-        Intent(view.context, LoginActivity::class.java).also {
-            view.context.startActivity(it)
-        }
-    }
 
     //disposing the disposables
     override fun onCleared() {

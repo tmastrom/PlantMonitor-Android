@@ -3,7 +3,7 @@ package com.example.plantmonitor
 import android.app.Application
 import com.example.plantmonitor.data.firebase.FirebaseSource
 import com.example.plantmonitor.data.repositories.UserRepository
-import com.example.plantmonitor.databinding.ActivityLoginBinding.bind
+import com.example.plantmonitor.databinding.FragmentLoginBinding.bind
 import com.example.plantmonitor.ui.auth.AuthViewModelFactory
 import com.example.plantmonitor.ui.dashboard.DashboardViewModelFactory
 import org.kodein.di.Kodein

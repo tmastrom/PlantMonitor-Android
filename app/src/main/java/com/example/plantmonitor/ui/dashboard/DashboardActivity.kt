@@ -19,7 +19,6 @@ class DashboardActivity : AppCompatActivity(), KodeinAware {
     private lateinit var binding: ActivityDashboardBinding
     private lateinit var viewModel: DashboardViewModel
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.i("Dashboard Activity", "Called onCreate")
@@ -27,10 +26,6 @@ class DashboardActivity : AppCompatActivity(), KodeinAware {
         viewModel = ViewModelProvider(this, factory).get(DashboardViewModel::class.java)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_dashboard)
         binding.vm = viewModel
-
         binding.lifecycleOwner = this
-
     }
-
-
 }

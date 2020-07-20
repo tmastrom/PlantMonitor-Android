@@ -8,7 +8,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.plantmonitor.data.models.PlantItem
 import com.example.plantmonitor.data.repositories.UserRepository
-import com.example.plantmonitor.utils.startLoginActivity
 import com.google.firebase.firestore.FirebaseFirestore
 
 
@@ -29,10 +28,10 @@ class DashboardViewModel (
         repository.currentUser()
     }
 
-    fun logout(view: View){
+/*    fun logout(view: View){
         repository.logout()
         view.context.startLoginActivity()
-    }
+    }*/
 
     /**
      * This will hear any updates from Firestore
