@@ -24,9 +24,9 @@ class TempuratureActivity : AppCompatActivity(), KodeinAware {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.Temperature)
+        setContentView(R.layout.temperature1)
 
-        val binding: ActivityDashboardBinding = DataBindingUtil.setContentView(this, R.layout.Temperature)
+        val binding: ActivityDashboardBinding = DataBindingUtil.setContentView(this, R.layout.temperature1)
         viewModel = ViewModelProvider(this, factory).get(DashboardViewModel::class.java)
         binding.vm = viewModel
         binding.lifecycleOwner = this

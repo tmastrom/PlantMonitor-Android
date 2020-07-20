@@ -6,7 +6,11 @@
     android:layout_height="match_parent"
     android:backgroundTint="@color/common_google_signin_btn_text_dark_pressed"
     android:foregroundTint="@color/cardBackground">
-
+    <data>
+        <variable
+            android:name="vm"
+            android:type="com.example.plantmonitor.ui.dashboard.DashboardViewModel" />
+    </data>
 
     <TextView
         android:id="@+id/textView21"
