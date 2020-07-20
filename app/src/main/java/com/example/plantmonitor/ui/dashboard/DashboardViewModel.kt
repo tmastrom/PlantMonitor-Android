@@ -57,6 +57,7 @@ class DashboardViewModel (
                 val plant = snapshot.toObject(PlantItem::class.java)
                 _plant.value = plant
                 humidity.value = _plant.value!!.humidity.toString()
+                humidity.postValue(_plant.value!!.humidity.toString())
                 Log.i(TAG, "observe change: " + humidity.value)
             }
         }
