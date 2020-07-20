@@ -26,8 +26,10 @@ class DashboardActivity : AppCompatActivity(), KodeinAware {
 
         viewModel = ViewModelProvider(this, factory).get(DashboardViewModel::class.java)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_dashboard)
-
         binding.vm = viewModel
+
+        binding.lifecycleOwner = this
+
     }
 
 

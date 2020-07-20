@@ -17,17 +17,13 @@ class DashboardViewModel (
 ) : ViewModel() {
 
     private var firestore : FirebaseFirestore
-    var humidity: MutableLiveData<String> = MutableLiveData<String>()
-
-    private var _plant: MutableLiveData<PlantItem> = MutableLiveData<PlantItem>()
+    var humidity: MutableLiveData<Int> = MutableLiveData()
 
     init {
         Log.i("ViewModel", "ViewModel created")
         firestore = FirebaseFirestore.getInstance()
         listenToPlants()
     }
-
-
 
     val user by lazy {
         repository.currentUser()
@@ -55,9 +51,12 @@ class DashboardViewModel (
             if (snapshot != null) {
                 // we have a snapshot
                 val plant = snapshot.toObject(PlantItem::class.java)
-                _plant.value = plant
-                humidity.value = _plant.value!!.humidity.toString()
-                humidity.postValue(_plant.value!!.humidity.toString())
+
+                if (plant != null) {
+                    humidity.value = plant.humidity
+                }
+                humidity.postValue(humidity.value)
+
                 Log.i(TAG, "observe change: " + humidity.value)
             }
         }
@@ -89,9 +88,5 @@ class DashboardViewModel (
         }
     }
 
-    //Todo: remove unused variable
-    internal var plant : MutableLiveData<PlantItem>
-        get() { return _plant}
-        set(value) {_plant = value}
 
 }
