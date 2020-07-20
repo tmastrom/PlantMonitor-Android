@@ -1,13 +1,10 @@
 package com.example.plantmonitor.ui.dashboard;
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.plantmonitor.R
-import com.example.plantmonitor.data.models.PlantItem
 import com.example.plantmonitor.databinding.ActivityDashboardBinding
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.kodein
@@ -24,9 +21,15 @@ class TempuratureActivity : AppCompatActivity(), KodeinAware {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+<<<<<<< HEAD
         setContentView(R.layout.temperature1)
 
         val binding: ActivityDashboardBinding = DataBindingUtil.setContentView(this, R.layout.temperature1)
+=======
+        setContentView(R.layout.temperature)
+
+        val binding: ActivityDashboardBinding = DataBindingUtil.setContentView(this, R.layout.temperature)
+>>>>>>> 9daf80d9d1e8c3931fcc73d1da0fbf45f7fe403e
         viewModel = ViewModelProvider(this, factory).get(DashboardViewModel::class.java)
         binding.vm = viewModel
         binding.lifecycleOwner = this
