@@ -31,4 +31,8 @@ class DashboardActivity : AppCompatActivity(), KodeinAware {
 
     }
 
+    override fun onRestart() {
+        super.onRestart()
+    }
+
 }

@@ -26,6 +26,8 @@ class DashboardViewModel (
         listenToPlants()
     }
 
+
+
     val user by lazy {
         repository.currentUser()
     }
