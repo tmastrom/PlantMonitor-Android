@@ -1,7 +1,6 @@
 package com.example.plantmonitor.ui.auth
 
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -32,12 +31,12 @@ class LoginActivity : AppCompatActivity(), AuthListener, KodeinAware {
 
     override fun onStarted() {
         //progressbar.visibility = View.VISIBLE
-        Toast.makeText(this, "started", Toast.LENGTH_SHORT).show()
+        //Toast.makeText(this, "started", Toast.LENGTH_SHORT).show()
     }
 
     override fun onSuccess() {
         //progressbar.visibility = View.GONE
-        Toast.makeText(this, "success", Toast.LENGTH_SHORT).show()
+        //Toast.makeText(this, "success", Toast.LENGTH_SHORT).show()
         startDashboardActivity()
     }
 

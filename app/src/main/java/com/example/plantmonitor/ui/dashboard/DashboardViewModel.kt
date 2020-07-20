@@ -1,6 +1,7 @@
 package com.example.plantmonitor.ui.dashboard
 
 import android.content.ContentValues.TAG
+import android.content.Intent
 import android.util.Log
 import android.view.View
 import androidx.lifecycle.MutableLiveData
@@ -16,9 +17,7 @@ class DashboardViewModel (
 ) : ViewModel() {
 
     private var firestore : FirebaseFirestore
-    var humidity: MutableLiveData<String> = MutableLiveData<String>()
-
-    private var _plant: MutableLiveData<PlantItem> = MutableLiveData<PlantItem>()
+    var humidity: MutableLiveData<Int> = MutableLiveData()
 
     init {
         Log.i("ViewModel", "ViewModel created")
@@ -52,8 +51,12 @@ class DashboardViewModel (
             if (snapshot != null) {
                 // we have a snapshot
                 val plant = snapshot.toObject(PlantItem::class.java)
-                _plant.value = plant
-                humidity.value = _plant.value!!.humidity.toString()
+
+                if (plant != null) {
+                    humidity.value = plant.humidity
+                }
+                humidity.postValue(humidity.value)
+
                 Log.i(TAG, "observe change: " + humidity.value)
             }
         }
@@ -64,8 +67,26 @@ class DashboardViewModel (
         Log.i("ViewModel", "ViewModel destroyed")
     }
 
-    internal var plant : MutableLiveData<PlantItem>
-        get() { return _plant}
-        set(value) {_plant = value}
+    fun gototemp(view: android.view.View) {
+        Intent(view.context, TempuratureActivity::class.java).also {
+            view.context.startActivity(it)
+        }
+    }
+    fun gotomos(view: android.view.View) {
+        Intent(view.context, MostureActivity::class.java).also {
+            view.context.startActivity(it)
+        }
+    }
+    fun gotoLight(view: android.view.View) {
+        Intent(view.context, LightActivity::class.java).also {
+            view.context.startActivity(it)
+        }
+    }
+    fun gohome(view: android.view.View) {
+        Intent(view.context, DashboardActivity::class.java).also {
+            view.context.startActivity(it)
+        }
+    }
+
 
 }
