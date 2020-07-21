@@ -12,7 +12,7 @@ android {
     useLibrary 'android.test.mock'
     defaultConfig {
         applicationId "com.example.plantmonitor"
-        minSdkVersion 21
+        minSdkVersion 26
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
