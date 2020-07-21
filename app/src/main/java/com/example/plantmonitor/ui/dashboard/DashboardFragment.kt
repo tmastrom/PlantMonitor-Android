@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -30,32 +31,30 @@ DashboardFragment : Fragment() {
         binding.vm = ViewModelProvider(this).get(DashboardViewModel::class.java)
         binding.lifecycleOwner = viewLifecycleOwner
 
-/*        binding.btnLogout.setOnClickListener { view : View ->
-            logout()
-        }*/
+        // Todo: Make this work
+        // Problem is Authentication state is not changed so when the home fragment is inflated, AUTH state is observed as Authenticated and navigates to Dashboard fragment
+        binding.btnLogout.setOnClickListener { view : View ->
+            AuthUI.getInstance().signOut(view.context)
+                .addOnCompleteListener {
+                    if (it.isComplete){
+                        if (it.isSuccessful){
+                            binding.vm!!.authenticationState.value = DashboardViewModel.AuthenticationState.UNAUTHENTICATED
+
+                        }
+                        else if (it.isCanceled) {
+                            Toast.makeText(view.context, "Sign Out Failed", Toast.LENGTH_SHORT).show()
+                        }
+                        view.findNavController().navigate(DashboardFragmentDirections.actionDashboardFragmentToHomeFragment())
+                    }
+                }
+        }
 
         return binding.root
     }
 
-/*    private fun logout() {
-        context?.let {
-            AuthUI.getInstance()
-                .signOut(it)
-                .addOnCompleteListener {
-                    binding.vm!!.authenticationState.value = DashboardViewModel.AuthenticationState.UNAUTHENTICATED
-                }
-        }
-    }*/
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.vm!!.listenToPlants()
-
-/*        val navController = findNavController()
-        binding.vm!!.authenticationState.observe(viewLifecycleOwner, Observer { authenticationState ->
-            when (authenticationState) {
-                DashboardViewModel.AuthenticationState.UNAUTHENTICATED -> navController.navigate(DashboardFragmentDirections.actionDashboardFragmentToHomeFragment())
-            }
-        })*/
     }
 }
