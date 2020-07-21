@@ -38,6 +38,7 @@
             android:layout_height="wrap_content"
             android:text="Sign up"
             android:focusable="true"
+            android:defaultFocusHighlightEnabled="true"
             android:focusedByDefault="true"
             android:textColor="@drawable/button_text_colour"
             android:layout_marginBottom="16dp"
