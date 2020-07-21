@@ -28,6 +28,7 @@ class DashboardViewModel () : ViewModel() {
         Log.i("ViewModel", "ViewModel created")
         authenticationState.value = AuthenticationState.UNAUTHENTICATED
         firestore = FirebaseFirestore.getInstance()
+        listenToPlants()
     }
 
     /**
