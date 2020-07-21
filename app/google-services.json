@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "305384866150-o4cq12d31rb0gjdtqaj2metl1gjju37j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.plantmonitor",
+            "certificate_hash": "42f795d3d0555195d4ba10aa0ee26a943fa156b4"
+          }
+        },
+        {
           "client_id": "305384866150-i8plf0av29dmn3jst71cjfriiqsq0bn4.apps.googleusercontent.com",
           "client_type": 3
         }
