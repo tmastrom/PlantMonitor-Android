@@ -2,14 +2,11 @@ package com.example.plantmonitor.ui.dashboard;
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider;
-import com.example.plantmonitor.data.repositories.UserRepository
 
 @Suppress("UNCHECKED_CAST")
-class DashboardViewModelFactory (
-    private val repository: UserRepository
-) : ViewModelProvider.NewInstanceFactory() {
+class DashboardViewModelFactory () : ViewModelProvider.NewInstanceFactory() {
 
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            return DashboardViewModel(repository) as T
+            return DashboardViewModel() as T
         }
 }
