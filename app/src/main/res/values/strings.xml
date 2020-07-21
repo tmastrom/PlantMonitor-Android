@@ -6,4 +6,5 @@
     <string name="profile">Profile</string>
     <string name="humidity_format">%d%%</string>
     <string name="soil_humidity">Soil humidity</string>
+    <string name="logout">Logout</string>
 </resources>
