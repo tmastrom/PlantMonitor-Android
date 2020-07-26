@@ -20,9 +20,9 @@ class LightActivity : AppCompatActivity(), KodeinAware {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.temperature)
+        setContentView(R.layout.fragment_temperature)
 
-        val binding: ActivityDashboardBinding = DataBindingUtil.setContentView(this, R.layout.temperature)
+        val binding: ActivityDashboardBinding = DataBindingUtil.setContentView(this, R.layout.fragment_temperature)
         viewModel = ViewModelProvider(this, factory).get(DashboardViewModel::class.java)
         binding.vm = viewModel
         binding.lifecycleOwner = this
