@@ -252,12 +252,12 @@
 
             </LinearLayout>
 
-
-
             <androidx.cardview.widget.CardView
                 android:id="@+id/temperature_cardView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="false"
                 android:layout_marginTop="24dp"
                 app:cardCornerRadius="25dp"
                 android:elevation="16dp"
@@ -317,8 +317,6 @@
             </androidx.cardview.widget.CardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
 
         <TextView
