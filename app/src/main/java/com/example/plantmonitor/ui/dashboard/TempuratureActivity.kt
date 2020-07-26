@@ -28,7 +28,7 @@ class TempuratureActivity : AppCompatActivity(), KodeinAware {
 =======
         setContentView(R.layout.temperature)
 
-        val binding: ActivityDashboardBinding = DataBindingUtil.setContentView(this, R.layout.temperature)
+        val binding: ActivityDashboardBinding = DataBindingUtil.setContentView(this, R.layout.temperature1)
 >>>>>>> 9daf80d9d1e8c3931fcc73d1da0fbf45f7fe403e
         viewModel = ViewModelProvider(this, factory).get(DashboardViewModel::class.java)
         binding.vm = viewModel
