@@ -1,6 +1,8 @@
 package com.example.plantmonitor.ui.dashboard
 
+import android.content.ContentValues.TAG
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,6 +32,17 @@ class DashboardFragment : Fragment() {
         binding.vm = ViewModelProvider(this).get(DashboardViewModel::class.java)
         binding.lifecycleOwner = viewLifecycleOwner
 
+<<<<<<< HEAD
+=======
+        binding.temperatureCardView.setOnClickListener { view: View ->
+            Log.i(TAG, "onCreateView: navigate to temp")
+            view.findNavController().navigate(DashboardFragmentDirections.actionDashboardFragmentToTempuratureFragment())
+
+        }
+
+        // Todo: Make this work
+        // Problem is Authentication state is not changed so when the home fragment is inflated, AUTH state is observed as Authenticated and navigates to Dashboard fragment
+>>>>>>> 5c7b9fa33a38d126ee49f0b9555421756f9084d4
         binding.btnLogout.setOnClickListener { view : View ->
             AuthUI.getInstance().signOut(view.context)
                 .addOnCompleteListener {

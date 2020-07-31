@@ -22,5 +22,17 @@
         <action
             android:id="@+id/action_dashboardFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_tempuratureFragment"
+            app:destination="@id/tempuratureFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tempuratureFragment"
+        android:name="com.example.plantmonitor.ui.dashboard.TemperatureFragment"
+        android:label="TempuratureFragment"
+        tools:layout="@layout/fragment_temperature">
+        <action
+            android:id="@+id/action_tempuratureFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
     </fragment>
 </navigation>
