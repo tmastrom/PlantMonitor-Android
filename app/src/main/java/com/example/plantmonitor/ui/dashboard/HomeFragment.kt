@@ -44,25 +44,28 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val navController = findNavController()
+
+        /**
+         * When authenticationState changes to AUTHENTICATED navigate to the Dashboard Fragment
+         */
         viewModel.authenticationState.observe(viewLifecycleOwner, Observer { authenticationState ->
             when (authenticationState) {
-                DashboardViewModel.AuthenticationState.AUTHENTICATED -> navController.navigate(HomeFragmentDirections.actionHomeFragmentToDashboardFragment())
+                DashboardViewModel.AuthenticationState.AUTHENTICATED -> navController.navigate(
+                    HomeFragmentDirections.actionHomeFragmentToDashboardFragment())
             }
         })
 
     }
 
     private fun login() {
-
         // Choose authentication providers
-        var providers = arrayListOf(
+        val providers = arrayListOf(
             AuthUI.IdpConfig.EmailBuilder().build()
         )
 
         startActivityForResult(
             AuthUI.getInstance().createSignInIntentBuilder().setAvailableProviders(providers).build(), AUTH_REQUEST_CODE
         )
-
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

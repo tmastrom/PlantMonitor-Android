@@ -22,7 +22,7 @@ class DashboardViewModel () : ViewModel() {
     var authenticationState = MutableLiveData<AuthenticationState>()
 
     private var firestore : FirebaseFirestore
-    var humidity: MutableLiveData<Int> = MutableLiveData()
+
 
     init {
         Log.i("ViewModel", "ViewModel created")
@@ -31,29 +31,26 @@ class DashboardViewModel () : ViewModel() {
         listenToPlants()
     }
 
+    var humidity: MutableLiveData<Int> = MutableLiveData()
     /**
-     * This will hear any updates from Firestore
+     * Listen for updates in Firestore
+     * Get latest value and post on change
      */
     fun listenToPlants() {
         firestore.collection("plant_data")
             .document("plant_0")
             .addSnapshotListener {
             snapshot, e ->
-            // if there is an exception, then skip
             if (e != null) {
                 Log.w(TAG, "listen Failed", e)
                 return@addSnapshotListener
             }
-            // if we are here, we didn't encounter exception
             if (snapshot != null) {
-                // we have a snapshot
                 val plant = snapshot.toObject(PlantItem::class.java)
-
                 if (plant != null) {
                     humidity.value = plant.humidity
                     humidity.postValue(humidity.value)
                 }
-                Log.i(TAG, "observe change: " + humidity.value)
             }
         }
     }

@@ -17,8 +17,7 @@ import com.example.plantmonitor.R
 import com.example.plantmonitor.databinding.FragmentDashboardBinding
 import com.firebase.ui.auth.AuthUI
 
-class
-DashboardFragment : Fragment() {
+class DashboardFragment : Fragment() {
 
     private lateinit var binding : FragmentDashboardBinding
 
@@ -31,15 +30,12 @@ DashboardFragment : Fragment() {
         binding.vm = ViewModelProvider(this).get(DashboardViewModel::class.java)
         binding.lifecycleOwner = viewLifecycleOwner
 
-        // Todo: Make this work
-        // Problem is Authentication state is not changed so when the home fragment is inflated, AUTH state is observed as Authenticated and navigates to Dashboard fragment
         binding.btnLogout.setOnClickListener { view : View ->
             AuthUI.getInstance().signOut(view.context)
                 .addOnCompleteListener {
                     if (it.isComplete){
                         if (it.isSuccessful){
                             binding.vm!!.authenticationState.value = DashboardViewModel.AuthenticationState.UNAUTHENTICATED
-
                         }
                         else if (it.isCanceled) {
                             Toast.makeText(view.context, "Sign Out Failed", Toast.LENGTH_SHORT).show()
